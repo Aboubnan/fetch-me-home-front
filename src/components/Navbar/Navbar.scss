@@ -1,0 +1,193 @@
+@use 'sass:color';
+@use '../../styles/_vars';
+
+nav {
+    position: relative;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8em 1em;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.burger-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    z-index: 20;
+    position: relative;
+}
+
+.logo img {
+    height: 4em;
+}
+
+.menu-burger {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: vars.$black;
+    z-index: 20;
+}
+
+.menu-open {
+
+    .burger-container {
+        transition: all 0.5s;
+        height: 35vh;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .logo img {
+        position: relative;
+        top: -2.2em;
+        height: 7em;
+    }
+
+    .fa-xmark {
+        transform: translate(40vw, -2vh);
+        color: vars.$white;
+        transition: all 0.5s;
+
+        &:hover {
+            color: vars.$yellow-alt;
+        }
+    }
+}
+
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background-color: vars.$purple;
+    color: vars.$white;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: color.adjust(vars.$purple, $lightness: -10%);
+        transform: scale(1.05);
+    }
+
+    i {
+        font-size: 1.2em;
+    }
+}
+
+nav ul {
+    display: none;
+    list-style: none;
+}
+
+nav ul.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: vars.$purple;
+    color: vars.$white;
+    font-weight: 600;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    z-index: 15;
+    padding-top: 6em;
+
+    li>a {
+        color: vars.$white;
+        transition: all 0.5s;
+
+
+        &:hover {
+            color: vars.$purple-alt;
+        }
+    }
+
+    .link-redirection {
+        padding: 0;
+        background-color: vars.$purple;
+        color: vars.$yellow-alt;
+        transition: all 0.5s;
+
+        &:hover {
+            color: vars.$yellow-alt;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .burger-container {
+        display: flex;
+        all: unset; // Réinitialise toutes les propriétés CSS d'un élément à leur valeur par défaut du navigateur (= comme si aucun style n'avait été appliqué)
+    }
+
+    .menu-burger {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        padding: 1.2em;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        flex-grow: 5;
+        align-items: center;
+        gap: 1em;
+    }
+
+    li {
+        &>a {
+            transition: all 0.5s;
+        }
+
+        &>a:hover {
+            color: vars.$purple-alt;
+        }
+    }
+
+    @media (min-width: 768px) {
+        nav ul.active {
+            display: flex !important; // pour s'assurer que le menu s'affiche normalement en desktop
+            position: static;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            padding: 0;
+            flex-direction: row;
+            color: inherit;
+        }
+    }
+
+}
+
+@media (min-width: 1024px) {
+    nav {
+        padding: 1em 2em;
+    }
+
+    nav ul {
+        gap: 1.5em;
+    }
+}

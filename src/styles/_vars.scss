@@ -1,0 +1,19 @@
+@use 'sass:color';
+
+// --- Variables --- 
+$purple: #4E0BA6;
+$yellow: #FFC132;
+$white: #FCFCFC;
+$black: #000;
+$light-gray: #E0E0E0;
+$roboto: "Roboto", sans-serif;
+$poppins: "Poppins", sans-serif;
+
+$box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+$purple-alt: color.scale($purple, $lightness: +70%);
+$purple-pastel: color.scale($purple, $lightness: +96%);
+$yellow-alt: color.scale($yellow, $lightness: +45%);
+$yellow-pastel: color.scale($yellow, $lightness: +90%);
+// $color-light: #fff;
+// $color-pastel: color.scale($color-alt, $lightness: +60%);

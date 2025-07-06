@@ -1,0 +1,220 @@
+@use '../../styles/_vars';
+
+#modal {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 20, 20, 0.8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+
+
+    article {
+
+        background: rgba(235, 235, 235, 0.9);
+        width: 100%; // permet le redimensionnement en petit écran
+        height: inherit; // pour conserver la bonne taille du parent
+        position: relative; // permet le placement de la croix dans la modale
+        overflow: auto; // scroll si trop petit surtout en mobile
+
+
+        i {
+            position: absolute;
+            right: 0.4em;
+            top: 0.3em;
+            font-size: 2rem;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 1px 1px 10px inset black;
+            padding: 2px 6px; // améliore rondeur du bouton de fermeture
+            background: vars.$purple-alt;
+            transition: all 0.6s ease;
+
+            &:hover {
+                transform: rotate(180deg);
+            }
+        }
+
+        #pet-name {
+            position: absolute;
+            left: 2em;
+            top: 1em;
+            color: vars.$white;
+            text-shadow: 0 1px 10px black;
+        }
+
+        header#modal-header {
+            display: flex; // nécessaire pour ecran + grand
+            margin: 0;
+            gap: 1em;
+
+            img {
+                max-height: 180px;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            h2 {
+                color: vars.$purple;
+                text-align: center;
+                text-transform: uppercase;
+                text-wrap: nowrap;
+                margin: 0;
+                font-size: min(5vw, 1.3em); // pour gérer la petite taille d'écran avec un titre non débordant
+            }
+        }
+
+        form {
+            padding: 0.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+
+            label.title {
+                font-weight: 600;
+            }
+
+            fieldset {
+                width: 100%;
+                padding: 1em;
+                display: flex;
+            }
+
+            textarea {
+                resize: vertical;
+                font-size: 0.8em;
+                height: 7.5em;
+            }
+
+            #dates {
+                font-size: 0.8em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.8em;
+
+
+                label {
+                    display: block;
+                }
+
+                label.date {
+                    display: flex;
+                    flex-direction: row;
+                    width: 200px;
+                    justify-content: space-between;
+
+                    & .calendar {
+                        width: 140px; // pour figer la taille des dates
+                    }
+                }
+            }
+
+            #confirm-text {
+                text-align: justify;
+                font-style: italic;
+                font-size: 0.9em;
+                margin-top: 0.5em;
+            }
+
+            input[type="checkbox"] {
+                accent-color: vars.$purple-alt;
+            }
+
+            button.link-redirection {
+                padding: 0.5em 1em;
+                align-self: center;
+                margin-top: 0.5em;
+
+                &.disabled {
+                    background: rgb(171, 171, 171);
+                    border: none;
+                    color: white;
+                    cursor: not-allowed;
+
+                    &:hover {
+                        transition: none;
+                    }
+                }
+            }
+
+            ul#errors {
+                text-align: left;
+                color: rgb(215, 19, 19);
+                margin: 0;
+                font-size: 0.8em;
+                padding-left: 1em;
+            }
+        }
+    }
+}
+
+// media queries
+
+@media screen and (min-width:950px) {
+    #modal {
+        article {
+            width: 43vw;
+            height: 94.6vh;
+            border-radius: 1em;
+
+            form {
+                // height: 90vh; // pour réduire l'affichage du formulaire dans la modale afin qu'elle ne prenne pas toute la hauteur de la fenêtre
+                border-radius: 0.5em;
+                gap: 1em;
+
+                #dates {
+                    @media screen and (min-width: 1110px) {
+                        flex-direction: row;
+                        justify-content: center;
+                        gap: 2em;
+                        align-items: center;
+                        font-size: 1em;
+                    }
+                }
+
+                textarea {
+                    height: 10em;
+                    font-size: 1em;
+                }
+
+                button.link-redirection {
+                    margin-top: 0.7em;
+                }
+
+                #confirm-text {
+                    font-size: 1em;
+                }
+
+            }
+
+            header#modal-header {
+                img {
+                    width: 100%;
+                    max-height: 300px;
+                    object-fit: cover;
+                    object-position: center;
+                    border-top-left-radius: 1em;
+                    border-top-right-radius: 1em;
+                }
+            }
+
+            i {
+                color: white;
+                padding: 5px 9px;
+                top: 0.5em;
+                right: 1em;
+            }
+        }
+    }
+}

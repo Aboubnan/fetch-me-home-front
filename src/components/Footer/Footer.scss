@@ -1,0 +1,88 @@
+@use '../../styles/_vars';
+
+footer {
+    padding-top: 3em;
+    font-size: 0.9em;
+    color: vars.$white;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+
+    .socials {
+        padding: 0 0 2.5em;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        color: vars.$black;
+
+        .fa-brands {
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.7s;
+
+            &:hover {
+                color: vars.$purple;
+            }
+        }
+    }
+
+    .footer {
+        background-color: vars.$purple;
+        font-size: 0.8em;
+        font-weight: 500;
+        padding: 2em 0;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em
+            ;
+            li {
+                & > a {
+                    color: vars.$white;
+
+                    &:hover{
+                        color: vars.$purple-alt;
+                    }
+                }
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media (min-width: 768px) {
+      
+    footer .footer ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 1.1em;
+    }
+
+    footer .footer ul li:last-child {
+        width: 100%; 
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px){
+    footer{
+        padding-top: 2.5em
+    }
+
+    // footer::before {
+    //     content: "";
+    //     display: block;
+    //     height: 0.1em;
+    //     width: 100%;
+    //     background-color: black;
+    //     margin-bottom: 2.5em;
+    // }
+}

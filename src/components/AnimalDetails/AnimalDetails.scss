@@ -1,0 +1,228 @@
+@use '../../styles/_vars';
+
+.animal-details-card {
+    // Conteneur principal 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em 0;
+}
+
+.animal-card-container {
+    // Bloc principal de la carte (image + infos)
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 1.2em;
+    padding: 2.5em 2em 2em 2em;
+    max-width: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.animal-main-image {
+    // Image principale de l'animal
+    width: 100%;
+    max-width: 25em;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 1em;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.2em;
+}
+
+.animal-card-infos {
+    // Bloc infos (nom, âge, lieu, genre, galerie)
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.animal-card-infos h1 {
+    // Nom de l'animal 
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: vars.$black;
+    font-weight: 800;
+    text-align: center;
+}
+
+.info-list {
+    // Liste des infos principales (âge, lieu, genre)
+    width: 100%;
+    margin: 0 0 1.5em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.info-list li {
+    display: flex;
+    align-items: baseline; // On utilise baseline pour que les icônes descendent légèrement et soient mieux alignées avec le texte
+    gap: 1em;
+    font-size: 1.1em;
+    justify-content: flex-start;
+}
+
+.info-list .icon {
+    // Style des icônes 
+    display: flex;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    font-size: 1.5em;
+}
+
+.details-gallery {
+    // Galerie de miniatures 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7em;
+    margin: 1em 0 0.5em 0;
+    justify-content: center;
+}
+
+.details-gallery .gallery-thumb {
+    border: 2px solid transparent;
+    border-radius: 0.5em;
+    padding: 0;
+    cursor: pointer;
+    width: 4.5em;
+    height: 4.5em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.details-gallery .gallery-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+.details-gallery .gallery-thumb:hover,
+.details-gallery .gallery-thumb.active {
+    border-color: vars.$purple;
+    box-shadow: 0 2px 8px 0 rgba(162, 89, 230, 0.10);
+}
+
+.animal-description-section {
+    // Bloc description et bouton adoption
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em;
+    text-align: center;
+}
+
+.animal-description-section h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.7em;
+    color: vars.$black;
+}
+
+.description-text {
+    // Texte de description 
+    color: vars.$black;
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+    border-top: 2px solid vars.$purple;
+    padding: 1em 0 0 0;
+    font-size: 1.1em;
+    background: none;
+}
+
+// Couleurs des icônes 
+.fa-venus.icon {
+    color: #e75480;
+}
+
+.fa-mars.icon {
+    color: #4a90e2;
+}
+
+.fa-cake-candles.icon {
+    color: green;
+}
+
+.fa-location-dot.icon {
+    color: red;
+}
+
+.messageAdoption{
+    margin: 1.5em;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .animal-details-card {
+        padding: 4em 2em;
+    }
+
+    .animal-card-container {
+        max-width: 60em;
+        padding: 3em 3em 2.5em 3em;
+    }
+
+    .animal-main-image {
+        max-width: 30em;
+    }
+
+    .animal-description-section {
+        max-width: 40em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 1120px) {
+    .animal-details-card {
+        align-items: center; // centre la carte sur la page
+    }
+
+    .animal-card-container {
+        // Passe en deux colonnes : infos à gauche, image à droite
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 70em;
+        gap: 3em;
+        padding: 3em 4em 3em 4em;
+    }
+
+    .animal-main-image {
+        order: 2; // image à droite
+        max-width: 24em;
+        margin-bottom: 0;
+        margin-left: 2em;
+    }
+
+    .animal-card-infos {
+        order: 1; // infos à gauche
+        max-width: 22em;
+        align-items: flex-start;
+        text-align: left;
+        gap: 2em;
+    }
+
+    .animal-description-section {
+        // Bloc description centré sous la carte entière
+        max-width: 45em;
+        margin: 2.5em auto 0 auto;
+        align-items: center;
+        text-align: center;
+        padding: 2em 2em 2.5em 2em;
+    }
+
+    .animal-description-section h2 {
+        font-size: 1.5em;
+    }
+
+    .details-gallery {
+        justify-content: flex-start;
+    }
+}

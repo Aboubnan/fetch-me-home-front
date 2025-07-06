@@ -1,0 +1,65 @@
+@use '../../styles/_vars.scss';
+
+.legal-container {
+    color: vars.$purple;
+    font-family: vars.$poppins;
+    border-radius: 1em;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    padding: 2em 1em;
+    margin: 2em 0.5em 1em 0.5em;
+    font-size: 1em;
+    line-height: 1.7;
+
+    h2 {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+        color: vars.$purple;
+        text-align: center;
+    }
+
+    .legal-section {
+        margin-bottom: 1.5em;
+
+        h3 {
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+            color: vars.$purple;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1em;
+            color: vars.$black;
+            margin: 0;
+        }
+
+        a {
+            color: vars.$purple;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .legal-container {
+        font-size: 0.85em;
+        padding: 1.2em 0.5em;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .legal-container {
+        font-size: 0.95em;
+        padding: 1.5em 1em;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .legal-container {
+        font-size: 1em;
+        padding: 2em 2.5em;
+        max-width: 50em;
+        margin: 2em auto 1em auto;
+    }
+}

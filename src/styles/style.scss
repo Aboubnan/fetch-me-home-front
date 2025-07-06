@@ -1,0 +1,55 @@
+@use './_vars';
+
+body {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    background-color: vars.$white;
+
+}
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+// style pour les "boutons" de redirection
+.link-redirection {
+    background-color: vars.$white;
+    color: vars.$purple;
+    padding: 1em 1.2em;
+    border: 1px solid vars.$purple;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.6s;
+
+    &:hover {
+        background-color: vars.$purple;
+        color: vars.$white;
+    }
+}
+
+section {
+    margin-top: 5em;
+}
+
+::selection {
+    color: #fff;
+    background: vars.$purple;
+}

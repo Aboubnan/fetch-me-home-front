@@ -1,0 +1,16 @@
+:global {
+    @import 'bulma/css/bulma.css';
+}
+
+// on wrappe les composants qui utilisent Bulma dans une classe
+.bulmaScope {
+    :global {
+
+        // on réinitialise les styles de bulma
+        // pour ne pas avoir de conflit avec les styles globaux
+        * {
+
+            box-sizing: border-box;
+        }
+    }
+}

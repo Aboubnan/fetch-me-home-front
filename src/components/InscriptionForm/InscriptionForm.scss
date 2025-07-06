@@ -1,0 +1,245 @@
+@use 'sass:color';
+@use '../../styles/_vars';
+
+/* Conteneur principal du formulaire */
+.inscription-container {
+    width: 60%;
+    margin: 2em auto;
+    padding: 2em;
+    background: vars.$white;
+    border-radius: 1em;
+    box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
+}
+
+/* Carte contenant le formulaire */
+.form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style du logo */
+.logo-inscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5em;
+
+    img {
+        width: 8em;
+        height: auto;
+    }
+}
+
+/* Titre du formulaire */
+h2 {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: vars.$black;
+}
+
+/* Conteneur des boutons de sélection du type d'utilisateur */
+.user-type-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+/* Style des boutons de sélection */
+.toggle-btn {
+    padding: 0.7em 1.2em;
+    border-radius: 2em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    background: vars.$white;
+    color: vars.$purple;
+    border: 1px solid vars.$purple;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+
+    /* Style du bouton actif */
+    &.active {
+        background: vars.$purple;
+        color: vars.$white;
+        border-color: vars.$purple;
+    }
+
+    /* Style spécifique pour le bouton Association */
+    &:nth-child(2) {
+        color: vars.$yellow;
+        border-color: vars.$yellow;
+
+        /* Style du bouton Association actif */
+        &.active {
+            background: vars.$yellow;
+            color: vars.$black;
+            border-color: vars.$yellow;
+        }
+    }
+}
+
+/* Grille du formulaire */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+/* Style des groupes de champs du formulaire */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+
+    &.password-group {
+        grid-column: span 2;
+    }
+
+    &.section-title {
+        grid-column: span 2;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        border-bottom: 2px solid vars.$light-gray;
+        padding-bottom: 0.5em;
+
+        h3 {
+            color: vars.$purple;
+            font-size: 1.1em;
+            margin: 0;
+        }
+    }
+
+    label {
+        font-size: 1em;
+        color: vars.$black;
+        font-weight: 500;
+    }
+}
+
+/* Style des inputs du formulaire */
+.form-input {
+    padding: 0.8em;
+    border: 1px solid vars.$light-gray;
+    border-radius: 0.5em;
+    font-size: 1em;
+    transition: border-color 0.3s;
+
+    &:focus {
+        outline: none;
+        border-color: vars.$purple;
+    }
+}
+
+/* Style du bouton de soumission */
+.submit-btn {
+    width: 100%;
+    padding: 0.9em;
+    background: vars.$purple;
+    color: vars.$white;
+    border-radius: 0.5em;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 1em;
+
+    /* Effet hover sur le bouton */
+    &:hover {
+        background: color.adjust(vars.$purple, $lightness: -10%);
+    }
+
+    /* Style spécifique pour le bouton de soumission des associations */
+    &.association-submit {
+        background: vars.$yellow;
+        color: vars.$black;
+
+        &:hover {
+            background: color.adjust(vars.$yellow, $lightness: -10%);
+        }
+    }
+}
+
+/* mentions légales */
+.terms {
+    font-size: 0.9em;
+    text-align: center;
+    color: gray;
+
+    a {
+        color: vars.$purple;
+        text-decoration: underline;
+        transition: color 0.3s;
+
+        &:hover {
+            color: color.adjust(vars.$purple, $lightness: -10%);
+        }
+    }
+}
+
+.password-hint,
+.info-hint {
+    font-size: 0.75rem;
+    color: gray;
+    display: block;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .inscription-container {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.password-group {
+        grid-column: span 1;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .inscription-container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 40em) {
+    .inscription-container {
+        padding: 2em;
+    }
+
+    .logo-inscription img {
+        width: 10em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .toggle-btn {
+        font-size: 1.1em;
+        padding: 1em 2em;
+    }
+
+    .form-group label {
+        font-size: 1.1em;
+    }
+
+    .form-group input {
+        font-size: 1.1em;
+        padding: 1em;
+    }
+
+    .submit-btn {
+        font-size: 1.2em;
+        padding: 1.1em;
+    }
+}

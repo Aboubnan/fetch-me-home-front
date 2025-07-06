@@ -1,0 +1,66 @@
+@use '../../styles/_vars';
+
+// Container boutons icones d'animaux
+.species{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2em;
+
+    img{
+        height: 2.5em;
+        padding: 0.2em;
+    }
+}
+
+// Boutons icones d'animaux (redirection)
+.circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid vars.$black;
+    width: 2.9em;
+    cursor: pointer;
+}
+
+.cat{
+    width: 2em;
+}
+
+.rabbit{
+    width: 1.8em;
+
+}
+
+.ferret{
+    width: 2.8em;
+}
+
+.hamster {
+    width: 2.5em;
+}
+
+
+@media (min-width: 1024px) {
+    .circle{
+        display: none;
+    }
+
+    .visible{
+        display: flex;
+    }
+
+    .circle.visible {     // règles pour l'icône d'espèce visible
+        width: 5em;
+        
+    }
+
+    .visible .icons .species-icon {
+        width: 100%;
+    }
+
+    .species img {
+        height: 4.5em;
+        padding: 0.5em;
+    }
+}

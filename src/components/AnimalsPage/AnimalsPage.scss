@@ -1,0 +1,139 @@
+@use '../../styles/_vars';
+
+.filtres-pets {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 1em;
+    box-shadow: vars.$box-shadow;
+    padding: 1em;
+    border-radius: 10px;
+    margin: 2em;
+    font-size: 1em;
+    height: fit-content;
+
+    h2 {
+        margin: 0 0 0.5em 0;
+        font-size: 1.1em;
+        color: #333;
+    }
+
+    input,
+    select {
+        box-shadow: vars.$box-shadow;
+        border-radius: 5px;
+        border: none;
+        padding: 0.7em 1em;
+        font-size: 0.9em;
+    }
+}
+
+.animal-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.animal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    margin-top: 0;
+    justify-items: center;
+}
+
+.animal-card {
+    width: 90%;
+    height: 26em;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.15), 0 1.5px 4px 0 rgba(0, 0, 0, 0.08);
+    background: #fff;
+    border: 1px solid #eee;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+
+    >a {
+        color: unset;
+    }
+
+    .animal-image {
+        width: 100%;
+        height: 20em;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 0.5em 0.5em 0 0;
+    }
+
+    .animal-caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 1em 0 1em;
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+
+    .animal-location {
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+        font-size: 0.95em;
+        color: #666;
+        padding: 0.5em 1em 1em 1em;
+    }
+
+    &:hover {
+        transform: translateY(-0.3em);
+        box-shadow: 0 10px 24px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0, 0, 0, 0.10);
+    }
+}
+
+.fa-venus.gender-icon {
+    color: #e75480;
+}
+
+.fa-mars.gender-icon {
+    color: #4a90e2;
+}
+
+@media screen and (min-width: 768px) {
+    .animal-cards-container {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .animal-grid {
+        grid-template-columns: 1fr, 1fr, 1fr;
+
+    }
+
+    .filtres-pets {
+        width: 30%;
+        margin-left: 1em;
+    }
+
+    .animal-card {
+        margin: 2em;
+        height: 20em;
+
+        .animal-image {
+            height: 14em;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .filtres-pets {
+        width: 20%;
+        gap: 1em;
+    }
+
+    .animal-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+}

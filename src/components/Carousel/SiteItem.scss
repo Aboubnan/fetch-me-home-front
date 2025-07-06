@@ -1,0 +1,79 @@
+.section-carousel-img:not(.visible) {  /* opacité diminuent pour les bulles gauche et droite */
+    &> .gauche, &> .droite {
+    opacity: 0.5;
+    }
+}
+
+.section-carousel-img:not(.visible):first-child {
+    & > .droite {
+        animation: gauchefirst 0.6s ease;
+    }
+}
+
+.section-carousel-img:not(.visible):first-child {
+    & > .gauche {
+        animation: droitefirst 0.6s ease;
+    }
+}
+
+.section-carousel-img:not(.visible):last-child {
+    & > .droite {
+        animation: gauchelast 0.6s ease;
+    }
+}
+
+.section-carousel-img:not(.visible):last-child {
+    & > .gauche {
+        animation: droitelast 0.6s ease;
+    }
+}
+
+@media (min-width: 1024px) {
+    @keyframes gauchefirst {
+        0% {
+            transform: translateX(50px);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes droitefirst {
+        0% {
+            transform: translateX(-50px);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes gauchelast {
+        0% {
+            transform: translateX(50px);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes droitelast {
+        0% {
+            transform: translateX(-50px);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 0.5;
+        }
+    }
+}

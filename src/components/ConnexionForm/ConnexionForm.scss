@@ -1,0 +1,190 @@
+@use '../../styles/_vars';
+@use 'sass:color';
+
+
+.connexion-flex-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  margin-bottom: 1em;
+}
+
+.connexion-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.decoration-img {
+  width: 28vw;
+  max-width: 32em;
+  height: auto;
+  margin-right: 2em;
+  rotate: -25deg;
+}
+
+.connexion-container {
+  max-width: 32em;
+  min-width: 20em;
+  margin: 0 2em;
+  position: relative;
+  min-height: 35em;
+  padding: 2em;
+  background: vars.$white;
+  border-radius: 1em;
+  box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 8em;
+    height: auto;
+  }
+}
+
+h2 {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 1.5em;
+  color: vars.$black;
+}
+
+.user-type-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.button {
+  padding: 0.7em 1.2em;
+  border-radius: 2em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  background: vars.$yellow;
+  color: vars.$black;
+  transition: background 0.3s, color 0.3s;
+
+  &.active {
+    border-color: red;
+    background: vars.$purple;
+    color: vars.$white;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+
+  label {
+    font-size: 1em;
+    color: vars.$black;
+  }
+
+  input {
+    padding: 0.8em;
+    border: 1px solid vars.$light-gray;
+    border-radius: 0.5em;
+    font-size: 1em;
+
+    &:focus {
+      outline: none;
+      border-color: vars.$purple;
+    }
+  }
+}
+
+.submit-btn {
+  margin-top: 0.5em;
+  padding: 0.9em;
+  background: vars.$purple;
+  color: vars.$white;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgot-password {
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 1em;
+  color: gray;
+
+  a {
+    color: vars.$purple;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 900px) {
+  .connexion-flex-layout {
+    flex-direction: column;
+  }
+
+  .connexion-img-col {
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+
+  .decoration-img {
+    width: 60vw;
+  }
+}
+
+@media (min-width: 40em) {
+  .connexion-container {
+    padding: 2em;
+  }
+
+  .logo-connexion img {
+    width: 10em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .button {
+    font-size: 1.1em;
+    padding: 1em 2em;
+  }
+
+  .form-group label {
+    font-size: 1.1em;
+  }
+
+  .form-group input {
+    font-size: 1.1em;
+    padding: 1em;
+  }
+
+  .submit-btn {
+    font-size: 1.2em;
+    padding: 1.1em;
+  }
+}
