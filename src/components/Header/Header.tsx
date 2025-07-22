@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import './Header.scss';
 import header_img from '../../assets/img_patte.png';
 import axios from 'axios';
+import { API_URL } from '../../config';
 
 // Ajout du type pour les props
 interface HeaderProps {
@@ -18,7 +19,7 @@ function Header({ title }: HeaderProps) {
 
   function fetchAnimalCount() {
     axios
-      .get('http://localhost:3001/pets') // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
+      .get(`${API_URL}/pets`) // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
       .then((response) => {
         //ici, count est le  nombre d'animaux total
         setAnimalCount(response.data.count);
@@ -27,7 +28,7 @@ function Header({ title }: HeaderProps) {
 
   function fetchAssociationCount() {
     axios
-      .get('http://localhost:3001/associations') // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
+      .get(`${API_URL}/associations`) // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
       .then((response) => {
         //ici, count est le  nombre d'associations total
         setAssociationCount(response.data.count);
@@ -36,7 +37,7 @@ function Header({ title }: HeaderProps) {
 
   function fetchRequestCount() {
     axios
-      .get('http://localhost:3001/requests') // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
+      .get(`${API_URL}/requests`) // https://test-pet-foster-back.onrender.com/pets    --  https://aboubnan-server.eddi.cloud/pets
       .then((response) => {
         //ici, count est le  nombre de demandes d'adoption effectuées au total
         setRequestCount(response.data.count);

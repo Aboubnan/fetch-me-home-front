@@ -1,91 +1,210 @@
-.dashboard {
-    display: flex;
-    font-family: 'Arial', sans-serif;
-    background-color: #fefcf9;
-    min-height: 100vh;
+.volunteer-dashboard {
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
 
-    &__sidebar {
-        background-color: #f6ede8;
-        padding: 2rem;
-        width: 250px;
-        border-right: 1px solid #e4dcd5;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
 
-        h2 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+    section {
+        margin-bottom: 3rem;
+    }
 
-        nav ul {
+    .requests-section {
+        .request-list {
             list-style: none;
             padding: 0;
 
-            li {
-                margin: 1rem 0;
-                cursor: pointer;
-                padding: 0.5rem;
-                border-radius: 8px;
+            .request-card {
+                background: #f9f9f9;
+                border-left: 6px solid #ccc;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 0.5rem;
 
-                &:hover {
-                    background-color: #e9dcd4;
+                &.status-acceptée {
+                    border-color: #48c774; // Vert
+                }
+
+                &.status-refusée {
+                    border-color: #f14668; // Rouge
+                }
+
+                &.status-en_attente {
+                    border-color: #ffdd57; // Jaune
+                }
+
+                p {
+                    margin: 0.25rem 0;
+                }
+
+                .actions {
+                    margin-top: 1rem;
+
+                    button {
+                        margin-right: 0.5rem;
+                    }
                 }
             }
         }
     }
 
-    &__content {
-        flex: 1;
-        padding: 2rem;
+    .profile-section {
+        background-color: #f0f0f0;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
 
-        header h1 {
-            font-size: 2rem;
-            color: #5a4b41;
+        p {
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            margin-top: 1rem;
         }
     }
 
-    &__stats {
+    form {
         display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
+        flex-direction: column;
 
-        .card {
-            background-color: #fff8f3;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            flex: 1;
-
-            h3 {
-                margin-bottom: 0.5rem;
-                color: #7c6353;
-            }
-
-            p {
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #333;
-            }
-        }
-    }
-
-    &__missions {
-        margin-top: 2rem;
-
-        h2 {
-            font-size: 1.5rem;
+        .form-field {
             margin-bottom: 1rem;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 0.25rem;
+                display: inline-block;
+            }
+
+            input {
+                width: 100%;
+                padding: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .error {
+                color: #f14668;
+                font-size: 0.9rem;
+                margin-top: 0.25rem;
+            }
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
 
-            li {
-                background-color: #fff;
-                padding: 1rem;
-                margin-bottom: 0.5rem;
-                border-radius: 8px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            button {
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 4px;
+
+                &.primary {
+                    background-color: #3273dc;
+                    color: white;
+                }
+
+                &.danger {
+                    background-color: #f14668;
+                    color: white;
+                }
             }
         }
     }
 }
+
+
+
+// .dashboard {
+//     display: flex;
+//     font-family: 'Arial', sans-serif;
+//     background-color: #fefcf9;
+//     min-height: 100vh;
+
+//     &__sidebar {
+//         background-color: #f6ede8;
+//         padding: 2rem;
+//         width: 250px;
+//         border-right: 1px solid #e4dcd5;
+
+//         h2 {
+//             margin-bottom: 1rem;
+//             font-size: 1.5rem;
+//         }
+
+//         nav ul {
+//             list-style: none;
+//             padding: 0;
+
+//             li {
+//                 margin: 1rem 0;
+//                 cursor: pointer;
+//                 padding: 0.5rem;
+//                 border-radius: 8px;
+
+//                 &:hover {
+//                     background-color: #e9dcd4;
+//                 }
+//             }
+//         }
+//     }
+
+//     &__content {
+//         flex: 1;
+//         padding: 2rem;
+
+//         header h1 {
+//             font-size: 2rem;
+//             color: #5a4b41;
+//         }
+//     }
+
+//     &__stats {
+//         display: flex;
+//         gap: 1rem;
+//         margin-top: 2rem;
+
+//         .card {
+//             background-color: #fff8f3;
+//             padding: 1rem 2rem;
+//             border-radius: 12px;
+//             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+//             flex: 1;
+
+//             h3 {
+//                 margin-bottom: 0.5rem;
+//                 color: #7c6353;
+//             }
+
+//             p {
+//                 font-size: 1.5rem;
+//                 font-weight: bold;
+//                 color: #333;
+//             }
+//         }
+//     }
+
+//     &__missions {
+//         margin-top: 2rem;
+
+//         h2 {
+//             font-size: 1.5rem;
+//             margin-bottom: 1rem;
+//         }
+
+//         ul {
+//             list-style: none;
+//             padding: 0;
+
+//             li {
+//                 background-color: #fff;
+//                 padding: 1rem;
+//                 margin-bottom: 0.5rem;
+//                 border-radius: 8px;
+//                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+//             }
+//         }
+//     }
+// }

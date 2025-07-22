@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Navbar.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext/AuthContext';
+import logo from '../../assets/logo.png';
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -57,7 +58,7 @@ function Navbar() {
       <nav className={isActive && isMobile ? 'menu-open' : ''}>
         <div className="burger-container">
           <div className="logo">
-            <img src="src/assets/logo.png" alt="Logo" />
+            <img src={logo} alt="Logo" />
           </div>
 
           <button

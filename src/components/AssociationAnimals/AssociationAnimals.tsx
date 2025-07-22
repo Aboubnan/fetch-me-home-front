@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { mapApiAnimal } from '../../utils/animalUtils';
 import type { Animal } from '../@types/animal';
 import type AssociationType from '../@types/associations';
+import defaultImage from '../../assets/dog.png'; // adapte le chemin si besoin
 
 function AssociationAnimals() {
   const { id } = useParams();
@@ -93,11 +94,16 @@ function AssociationAnimals() {
               }
             >
               <img
-                src={`../../${animal.pictures[0].url} `|| '/default-animal.jpg'}
+                src={
+                  animal.pictures?.[0]?.url
+                    ? `${API_URL}${animal.pictures[0].url}`
+                    : defaultImage
+                }
                 alt={`${animal.name}, ${animal.race} de ${animal.age} ans`}
                 className="animal-image"
                 loading="lazy"
               />
+
               <div className="animal-info">
                 <figcaption className="animal-caption">
                   <h2>{animal.name}</h2>

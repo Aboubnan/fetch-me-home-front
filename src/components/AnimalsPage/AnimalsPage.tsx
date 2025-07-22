@@ -5,9 +5,9 @@ import './AnimalsPage.scss';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { mapApiAnimal } from '../../utils/animalUtils';
 import type { Animal } from '../@types/animal';
+import defaultImage from '../../assets/dog.png'; // adapte le chemin si besoin
 
 function AnimalsPage() {
-
   // recherche de paramètres de recherche species si accès fait via les liens des catégories d'animaux depuis le slider
   const [searchSpecies, setSearchSpecies] = useSearchParams();
 
@@ -18,7 +18,9 @@ function AnimalsPage() {
   // State pour le filtre de recherche par ville
   const [cityFilter, setCityFilter] = useState('');
   // State pour le filtre de recherche par espèce
-  const [speciesFilter, setSpeciesFilter] = useState(searchSpecies.get("species") ? searchSpecies.get("species") : ""); // on met la valeur de la recherche si elle existe dans l'url, sinon ""
+  const [speciesFilter, setSpeciesFilter] = useState(
+    searchSpecies.get('species') ? searchSpecies.get('species') : '',
+  ); // on met la valeur de la recherche si elle existe dans l'url, sinon ""
 
   // State pour le filtre de recherche par genre
   const [genderFilter, setGenderFilter] = useState('');
@@ -128,11 +130,16 @@ function AnimalsPage() {
           >
             {/* Image de l'animal */}
             <img
-              src={`../${animal.pictures[0].url}`}  //1ere image de l'animal
+              src={
+                animal.pictures?.[0]?.url
+                  ? `${API_URL}${animal.pictures[0].url}`
+                  : defaultImage
+              }
               alt={`Photo de ${animal.name}`}
               className="animal-image"
-              loading="lazy" // pour optimiser le chargement des images
+              loading="lazy"
             />
+
             {/* Nom et genre de l'animal */}
             <figcaption className="animal-caption">
               {animal.name}

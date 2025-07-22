@@ -6,6 +6,7 @@ import { mapApiAnimal } from '../../utils/animalUtils';
 import type { Animal } from '../@types/animal';
 import { Link, useParams } from 'react-router-dom';
 import AdoptionModal from './AdoptionModal.tsx'; // composant Modale
+import defaultImage from '../../assets/dog.png';
 
 // Composant principal pour l'affichage des détails d'un animal
 function AnimalDetails() {
@@ -16,8 +17,7 @@ function AnimalDetails() {
   // state pour la modale
   const [showModal, setShowModal] = useState(false);
   // state pour message à afficher après création request
-  const [messageAdoption, setMessageAdoption] = useState<string>("");
-
+  const [messageAdoption, setMessageAdoption] = useState<string>('');
 
   // Galerie d'images statique temporaire (seront remplacer par les img API))
   // const galleryImages = [
@@ -66,13 +66,13 @@ function AnimalDetails() {
     document.body.style.overflow = 'hidden';
   }
 
-     // fonction closeModal
-  function closeModal(e:MouseEvent|KeyboardEvent) {
-    e.stopPropagation();  // pour éviter le bouillonement sur l'élément "#modal" pour les clics sur croix et lien FAQ
+  // fonction closeModal
+  function closeModal(e: MouseEvent | KeyboardEvent) {
+    e.stopPropagation(); // pour éviter le bouillonement sur l'élément "#modal" pour les clics sur croix et lien FAQ
     //console.log(e.currentTarget);
-    if(e.target?.classList.contains("close") || e.key ==="Escape") {
-      document.body.style.overflow = "visible";
-      setShowModal(false);  
+    if (e.target?.classList.contains('close') || e.key === 'Escape') {
+      document.body.style.overflow = 'visible';
+      setShowModal(false);
     }
   }
 
@@ -88,14 +88,27 @@ function AnimalDetails() {
       <div className="animal-card-container">
         {/* Image principale de l'animal */}
         <img
-          src={selectedImage ? `../${selectedImage}` : `../${animal.pictures[0].url}`}
+          src={
+            selectedImage
+              ? `${API_URL}${selectedImage}`
+              : animal.pictures[0]?.url
+                ? `${API_URL}${animal.pictures[0].url}`
+                : defaultImage
+          }
           alt={`Photo principale de ${animal.name}`}
           className="animal-main-image"
         />
+
         {/* Bloc infos (nom, âge, lieu, genre, galerie) */}
         <div className="animal-card-infos">
           {/* insertion de la modale à ce niveau avec passage des props */}
-          {showModal && <AdoptionModal closeModal={closeModal} animal={animal} setMessage={setMessageAdoption}/>}
+          {showModal && (
+            <AdoptionModal
+              closeModal={closeModal}
+              animal={animal}
+              setMessage={setMessageAdoption}
+            />
+          )}
 
           <h1>{animal.name}</h1>
           <ul className="info-list">
@@ -127,7 +140,10 @@ function AnimalDetails() {
                   onClick={() => setSelectedImage(picture.url)}
                   type="button"
                 >
-                  <img src={`../${picture.url}`} alt={`Miniature ${picture.id}`} />
+                  <img
+                    src={`${API_URL}${picture.url}`}
+                    alt={`Miniature ${picture.id}`}
+                  />
                 </button>
               ))}
             </div>
@@ -141,7 +157,9 @@ function AnimalDetails() {
         <Link to="" className="link-redirection" onClick={showModalAdoption}>
           Adopte-moi !
         </Link>
-        {messageAdoption && <p className="messageAdoption">{messageAdoption}</p>}
+        {messageAdoption && (
+          <p className="messageAdoption">{messageAdoption}</p>
+        )}
       </div>
     </main>
   );

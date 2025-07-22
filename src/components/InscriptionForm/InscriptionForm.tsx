@@ -27,6 +27,7 @@ import {
   associationCreateSchema,
   AssociationFormData,
 } from '../../schemas/associationSchema';
+import { API_URL } from '../../config';
 
 // Valeurs par défaut pour le formulaire bénévole, typées pour garantir la sécurité
 const defaultUserValues: UserFormData = {
@@ -87,13 +88,9 @@ export default function InscriptionForm() {
     try {
       // On retire confirmPassword du payload envoyé à l'API
       const { confirmPassword, ...payload } = data;
-      const response = await axios.post(
-        'http://localhost:3001/users',
-        payload,
-        {
-          headers: { 'Content-Type': 'application/json' },
-        },
-      );
+      const response = await axios.post(`${API_URL}/users`, payload, {
+        headers: { 'Content-Type': 'application/json' },
+      });
       if (response.status === 201) {
         setSuccessMessage('Inscription réussie ! Bienvenue parmi nous.');
         userForm.reset();
@@ -132,13 +129,9 @@ export default function InscriptionForm() {
     setServerError('');
     try {
       const { confirmPassword, ...payload } = data;
-      const response = await axios.post(
-        'http://localhost:3001/associations',
-        payload,
-        {
-          headers: { 'Content-Type': 'application/json' },
-        },
-      );
+      const response = await axios.post(`${API_URL}/associations`, payload, {
+        headers: { 'Content-Type': 'application/json' },
+      });
       if (response.status === 201) {
         setSuccessMessage(
           'Inscription association réussie ! Vous pouvez compléter votre profil plus tard.',

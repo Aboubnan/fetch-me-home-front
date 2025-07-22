@@ -55,8 +55,8 @@ export default function ConnexionForm() {
         password,
       });
 
-      const { token, role } = response.data;
-      login(token, role);
+      const { token, role, id } = response.data;
+      login(token, role, { id, email }); // ✅ on passe un objet userData minimal
 
       // Redirection spécifique
       if (userType === 'association') {
@@ -151,6 +151,11 @@ export default function ConnexionForm() {
             <button type="submit" className="submit-btn">
               Se connecter
             </button>
+            <div className="inscription-link">
+              <a href="/inscription">
+                Pas encore de compte ? Inscrivez-vous ici
+              </a>
+            </div>
           </form>
         </div>
       </div>
