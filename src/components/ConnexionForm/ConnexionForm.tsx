@@ -19,7 +19,7 @@ import { API_URL } from '../../config';
 // Import du hook personnalisé useAuth depuis le contexte d'authentification
 import { useAuth } from '../AuthContext/AuthContext';
 
-import pawImg from '../assets/img-patte.png';
+import pawImg from '../assets/img_patte.png';
 import logo from '../assets/logo.png';
 
 // Définition du composant fonctionnel ConnexionForm
