@@ -28,7 +28,7 @@ import {
   AssociationFormData,
 } from '../../schemas/associationSchema';
 import { API_URL } from '../../config';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 // Valeurs par défaut pour le formulaire bénévole, typées pour garantir la sécurité
 const defaultUserValues: UserFormData = {
