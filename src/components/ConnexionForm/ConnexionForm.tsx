@@ -19,6 +19,9 @@ import { API_URL } from '../../config';
 // Import du hook personnalisé useAuth depuis le contexte d'authentification
 import { useAuth } from '../AuthContext/AuthContext';
 
+import pawImg from '../assets/img-patte.png';
+import logo from '../assets/logo.png';
+
 // Définition du composant fonctionnel ConnexionForm
 export default function ConnexionForm() {
   // Déclaration d'un état pour le type d'utilisateur (bénévole ou association)
@@ -77,7 +80,7 @@ export default function ConnexionForm() {
       {/* Colonne gauche contenant une image décorative */}
       <div className="connexion-img-col">
         <img
-          src="/src/assets/img_patte.png" // Chemin de l'image
+          src={pawImg} // Chemin de l'image
           alt="Décoration patte" // Texte alternatif
           className="decoration-img" // Classe CSS
         />
@@ -90,7 +93,7 @@ export default function ConnexionForm() {
           {/* Logo de l'application */}
           <div className="logo">
             <img
-              src="/src/assets/logo.png" // Chemin du logo
+              src={logo} // Chemin du logo
               alt="Logo Fetch Me Home" // Texte alternatif
             />
           </div>

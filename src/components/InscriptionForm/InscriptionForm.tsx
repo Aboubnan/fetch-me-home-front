@@ -28,6 +28,7 @@ import {
   AssociationFormData,
 } from '../../schemas/associationSchema';
 import { API_URL } from '../../config';
+import logo from '../assets/logo.png';
 
 // Valeurs par défaut pour le formulaire bénévole, typées pour garantir la sécurité
 const defaultUserValues: UserFormData = {
@@ -180,7 +181,7 @@ export default function InscriptionForm() {
       <div className="form-card">
         {/* Logo de l'application */}
         <div className="logo-inscription">
-          <img src="/src/assets/logo.png" alt="Logo Fetch Me Home" />
+          <img src={logo} alt="Logo Fetch Me Home" />
         </div>
 
         <h2>Bienvenue parmi nous !</h2>
